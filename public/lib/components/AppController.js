@@ -1,40 +1,41 @@
 import React from 'react';
-import API from '../API';
 import List from './List';
 import Form from './Form';
 
-console.log('in AppController');
+import API from '../API';
+import LinkActions from '../actions/LinkActions';
+
+import LinkStore from '../stores/LinkStore';
+// we'll read from the LinkStore at some point
+// read LinkStore.getAll()
+
+let _getAppState = () => {
+  return { bookmarks: LinkStore.getAll() };
+}
 
 class AppController extends React.Component {
   constructor(props) {
     super(props);
     this.displayName = 'AppController';
 
-    this.state = {
-      bookmarks: []
-    };
-    
+    this.state = _getAppState();
+    this._onChange = this._onChange.bind(this);
   }
   componentDidMount() {
-    console.log('did mount');
-    // fetch bookmark data from our API
-    API.getBookmarks()
-       .done(data => {
-         console.log(data);
-         this.setState( {bookmarks: data.links} );
-       })
-       .fail(err => console.log("Error fetching bookmark list", err))
+    LinkActions.getAllBookmarks();
+    LinkStore.startListening(this._onChange);
+  }
+  componentWillUnmount() {
+    LinkStore.stopListening(this._onChange);
   }
   addBookmark(newBookmark) {
-    API.addBookmark(newBookmark)
-       .done(added => {
-         console.log("Successfully added", added)
-         this.setState( {bookmarks: this.state.bookmarks.concat(added)} )
-       })
-       .fail(err => console.log("Error adding bookmark", err))
+    LinkActions.saveNewBookmark(newBookmark);
+  }
+  _onChange() {
+    console.log("5. the store has emitted a change event");
+    this.setState(_getAppState());
   }
   render() {
-    console.log('render');
     return (
       <div>
         <h1>Modular Bookmarks</h1>
