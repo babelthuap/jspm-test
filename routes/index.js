@@ -19,7 +19,6 @@ router.get('/api/links', function(req, res, next) {
 });
 
 router.post('/api/links', function(req, res, next) {
-  // req.body
   var newLink = req.body;
   links.push(newLink);
   res.json(newLink);
