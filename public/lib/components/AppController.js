@@ -1,7 +1,9 @@
 import React from 'react';
+import $ from "jquery";
 import List from './List';
 
 console.log('in AppController');
+
 
 class AppController extends React.Component {
   constructor(props) {
@@ -11,6 +13,15 @@ class AppController extends React.Component {
     this.state = {
       bookmarks: []
     };
+    
+  }
+  componentDidMount() {
+    // fetch bookmark data from our API
+    $.get('/api/links')
+      .done(data => {
+        console.log(data);
+        this.setState( {bookmarks: data.links} );
+      })
   }
   render() {
     return (

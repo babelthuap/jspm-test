@@ -9,9 +9,9 @@ router.get('/express', function(req, res, next) {
 });
 
 var links = [
-  {title: 'Fake Link 1', url: 'fake.url.1' },
-  {title: 'Fake Link 2', url: 'fake.url.2' },
-  {title: 'Fake Link 3', url: 'fake.url.3' }
+  {title: 'Fake Link 1', url: 'fake.url.1', id: Math.round(Math.random() * Date.now())},
+  {title: 'Fake Link 2', url: 'fake.url.2', id: Math.round(Math.random() * Date.now())},
+  {title: 'Fake Link 3', url: 'fake.url.3', id: Math.round(Math.random() * Date.now())}
 ];
 
 router.get('/api/links', function(req, res, next) {

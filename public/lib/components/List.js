@@ -9,7 +9,9 @@ class List extends React.Component {
     this.displayName = 'List';
   }
   render() {
-    let content = this.props.bookmarks.map(bookmark => <Link key={bookmark.id} link={bookmark} />);
+    let content = this.props.bookmarks.map(bookmark => {
+      return <Link key={bookmark.id} link={bookmark} />
+    });
     return <div className="list">
       {content}
     </div>;
