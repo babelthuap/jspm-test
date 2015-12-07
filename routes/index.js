@@ -8,7 +8,7 @@ router.get('/express', function(req, res, next) {
   res.render('index', { title: 'React' });
 });
 
-let generateId = () => Math.round(Math.random() * Date.now());
+let generateId = () => Math.random() * Date.now();
 
 let links = [
   {title: 'Google', url: 'http://google.com', id: generateId()},
