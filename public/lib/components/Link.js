@@ -10,7 +10,7 @@ class Link extends React.Component {
   render() {
     let {title, url} = this.props.link;
     return <div className="link">
-      <a href={url}>{title}</a>
+      <a href={url} target="_blank">{title}</a>
     </div>;
   }
 }

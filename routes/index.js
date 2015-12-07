@@ -11,9 +11,9 @@ router.get('/express', function(req, res, next) {
 let generateId = () => Math.round(Math.random() * Date.now());
 
 let links = [
-  {title: 'Fake Link 1', url: 'fake.url.1', id: generateId()},
-  {title: 'Fake Link 2', url: 'fake.url.2', id: generateId()},
-  {title: 'Fake Link 3', url: 'fake.url.3', id: generateId()}
+  {title: 'Google', url: 'http://google.com', id: generateId()},
+  {title: 'XKCD', url: 'http://xkcd.com', id: generateId()},
+  {title: 'Facebook', url: 'http://facebook.com', id: generateId()}
 ];
 
 router.get('/api/links', function(req, res, next) {
@@ -22,6 +22,7 @@ router.get('/api/links', function(req, res, next) {
 
 router.post('/api/links', function(req, res, next) {
   let newLink = req.body;
+  newLink.id = generateId();
   links.push(newLink);
   res.json(newLink);
 });
