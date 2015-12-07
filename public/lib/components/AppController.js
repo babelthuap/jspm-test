@@ -1,5 +1,5 @@
 import React from 'react';
-import util from '../util';
+import API from '../API';
 import List from './List';
 import Form from './Form';
 
@@ -18,7 +18,7 @@ class AppController extends React.Component {
   componentDidMount() {
     console.log('did mount');
     // fetch bookmark data from our API
-    util.getBookmarks()
+    API.getBookmarks()
       .done(data => {
         console.log(data);
         this.setState( {bookmarks: data.links} );
@@ -26,7 +26,7 @@ class AppController extends React.Component {
       .fail(err => console.log("Error fetching bookmark list", err))
   }
   addBookmark(newBookmark) {
-    util.addBookmark(newBookmark)
+    API.addBookmark(newBookmark)
       .done(added => {
         console.log("Successfully added", added)
         this.setState( {bookmarks: this.state.bookmarks.concat(added)} )

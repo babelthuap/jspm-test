@@ -1,8 +1,8 @@
 import $ from "jquery";
 
-let util = {};
+let API = {};
 
-util.getBookmarks = () => $.get('/api/links');
-util.addBookmark = newBookmark => $.post('/api/links', newBookmark);
+API.getBookmarks = () => $.get('/api/links');
+API.addBookmark = newBookmark => $.post('/api/links', newBookmark);
 
-export default util;
+export default API;
