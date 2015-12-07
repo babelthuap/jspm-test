@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from './Link';
 
+console.log('in List');
+
 class List extends React.Component {
   constructor(props) {
     super(props);

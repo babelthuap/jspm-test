@@ -1,5 +1,7 @@
 import React from 'react';
 
+console.log('in Link');
+
 class Link extends React.Component {
   constructor(props) {
     super(props);

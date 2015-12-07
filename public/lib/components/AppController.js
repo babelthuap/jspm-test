@@ -1,6 +1,8 @@
 import React from 'react';
 import List from './List';
 
+console.log('in AppController');
+
 class AppController extends React.Component {
   constructor(props) {
     super(props);
