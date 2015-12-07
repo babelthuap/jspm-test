@@ -1,5 +1,11 @@
 'use strict';
 
-let square = x => x * x;
+const answer = 42;
+console.log(`${answer}^2 = ${(x => x * x)(answer)}`);
 
-console.log(`47^2 = ${square(47)}`)
+
+import React from "react";
+import ReactDOM from "react-dom";
+import AppController from "./components/AppController";
+
+ReactDOM.render(<AppController />, document.getElementById("react"));
