@@ -19,19 +19,19 @@ class AppController extends React.Component {
     console.log('did mount');
     // fetch bookmark data from our API
     API.getBookmarks()
-      .done(data => {
-        console.log(data);
-        this.setState( {bookmarks: data.links} );
-      })
-      .fail(err => console.log("Error fetching bookmark list", err))
+       .done(data => {
+         console.log(data);
+         this.setState( {bookmarks: data.links} );
+       })
+       .fail(err => console.log("Error fetching bookmark list", err))
   }
   addBookmark(newBookmark) {
     API.addBookmark(newBookmark)
-      .done(added => {
-        console.log("Successfully added", added)
-        this.setState( {bookmarks: this.state.bookmarks.concat(added)} )
-      })
-      .fail(err => console.log("Error adding bookmark", err))
+       .done(added => {
+         console.log("Successfully added", added)
+         this.setState( {bookmarks: this.state.bookmarks.concat(added)} )
+       })
+       .fail(err => console.log("Error adding bookmark", err))
   }
   render() {
     console.log('render');
