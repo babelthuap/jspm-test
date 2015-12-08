@@ -39,12 +39,11 @@ class LinkStore extends EventEmitter {
           break;
         case ActionTypes.TOGGLE_LIKED_LINK:
           console.log("4. received news about the liked link", action)
-          
-          let likedLink = action.likedLink;
 
           // find by id and update
+          let likedLink = action.likedLink;
           let index = findIndexById(likedLink.id);
-          _links[index].likedBy[likedLink.yourIp] = likedLink.likedByUser;
+          _links[index].likedBy[myIp] = likedLink.likedByUser;
 
           this.emit("CHANGE");
           break;

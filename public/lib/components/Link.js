@@ -16,7 +16,7 @@ class Link extends React.Component {
   }
   render() {
     let {title, url, safe, likedBy} = this.props.bookmark;
-    return <div className="bookmark">
+    return <li className="bookmark">
       <a href={url}
          target="_blank"
          style={{color: (safe ? 'green' : 'blue')}}>
@@ -24,14 +24,14 @@ class Link extends React.Component {
       </a>
       &nbsp;
       <button className="fa fa-heart"
-              style={{backgroundColor: (likedBy.me ? 'orange' : null)}}
+              style={{color: (likedBy.me ? 'red' : null)}}
               onClick={this.likeBookmark.bind(this)}>
       </button>
       &nbsp;
       <button className="fa fa-trash"
               onClick={this.deleteBookmark.bind(this)}>
       </button>
-    </div>;
+    </li>;
   }
 }
 

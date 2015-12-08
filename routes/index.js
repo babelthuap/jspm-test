@@ -31,6 +31,7 @@ router.get('/api/links', function(req, res, next) {
 router.post('/api/links', function(req, res, next) {
   let newLink = req.body;
   newLink.id = generateId();
+  newLink.likedBy = {};
   links.push(newLink);
   res.json(newLink);
 });
@@ -57,42 +58,7 @@ router.put('/api/links', function(req, res, next) {
 
   links[index] = toUpdate;
 
-  res.json({id: idToToggleLike, likedByUser: toUpdate.likedBy[ip], yourIp: ip});
+  res.json({id: idToToggleLike, likedByUser: toUpdate.likedBy[ip]});
 });
 
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
