@@ -1,8 +1,6 @@
 import React from 'react';
 import Link from './Link';
 
-console.log('in List');
-
 class List extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +8,7 @@ class List extends React.Component {
   }
   render() {
     let content = this.props.bookmarks.map(bookmark => {
-      return <Link key={bookmark.id} link={bookmark} />
+      return <Link key={bookmark.id} bookmark={bookmark} />
     });
     return <div className="list">
       {content}

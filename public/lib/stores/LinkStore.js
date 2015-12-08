@@ -23,6 +23,11 @@ class LinkStore extends EventEmitter {
           _links.push(action.newBookmark);
           this.emit("CHANGE");
           break;
+        case ActionTypes.DELETED_LINK:
+          console.log("4. received news about the deleted link", action)
+          _links = _links.filter(link => link.id !== action.deleted.deletedId);
+          this.emit("CHANGE");
+          break;
         default:
           // do nothing
       }

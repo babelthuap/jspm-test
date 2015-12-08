@@ -27,4 +27,19 @@ router.post('/api/links', function(req, res, next) {
   res.json(newLink);
 });
 
+router.delete('/api/links/:id', function(req, res, next) {
+  let idToDelete = Number(req.params.id);
+  links = links.filter(link => link.id !== idToDelete);
+  res.json({deletedId: idToDelete});
+});
+
 module.exports = router;
+
+
+
+
+
+
+
+
+

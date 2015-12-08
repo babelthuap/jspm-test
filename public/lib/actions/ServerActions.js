@@ -18,6 +18,15 @@ let ServerActions = {
       actionType: ActionTypes.POSTED_LINK,
       newBookmark
     });
+  },
+
+  receiveDeletedId(deleted) {
+    console.log('3. server actions: receiveDeletedId()', deleted);
+
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.DELETED_LINK,
+      deleted
+    });
   }
 
 };

@@ -9,6 +9,11 @@ let LinkActions = {
   saveNewBookmark(newBookmark) {
     console.log('1. link actions: saveNewBookmark()', newBookmark)
     API.saveNewBookmark(newBookmark);
+  },
+
+  deleteBookmark(id) {
+    console.log('1. link actions: deleteBookmark()', id)
+    API.deleteBookmark(id);
   }
 };
 
