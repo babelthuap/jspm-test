@@ -25,7 +25,7 @@ class Form extends React.Component {
       <form onSubmit={this.handleSubmit.bind(this)}>
         <input type="text" placeholder="Title" value={this.state.title}
                onChange={this.changeTitle.bind(this)} />
-        <input type="url" placeholder="Url" value={this.state.url}
+        <input type="text" placeholder="Url" value={this.state.url}
                onChange={this.changeUrl.bind(this)} />
         <button type="submit">Add Link</button>
       </form>

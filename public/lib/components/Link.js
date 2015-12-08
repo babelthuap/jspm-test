@@ -8,9 +8,13 @@ class Link extends React.Component {
     this.displayName = 'Link';
   }
   render() {
-    let {title, url} = this.props.link;
+    let {title, url, safe} = this.props.link;
     return <div className="link">
-      <a href={url} target="_blank">{title}</a>
+      <a href={url}
+         target="_blank"
+         style={{color: (safe ? 'green' : 'blue')}}>
+      {title}
+      </a>
     </div>;
   }
 }

@@ -32,7 +32,11 @@ class LinkStore extends EventEmitter {
   // 2. Expose some data
   getAll() {
     // can do some computation on _links
-    return _links; // FOR NOW
+    return _links.map(link => {
+      link.url = link.url.startsWith('http') ? link.url : 'http://' + link.url;
+      link.safe = link.url.startsWith('https');
+      return link;
+    });
   }
 
   // Listen stuff

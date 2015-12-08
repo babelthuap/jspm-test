@@ -11,7 +11,7 @@ router.get('/express', function(req, res, next) {
 let generateId = () => Math.random() * Date.now();
 
 let links = [
-  {title: 'Google', url: 'http://google.com', id: generateId()},
+  {title: 'Google', url: 'https://google.com', id: generateId()},
   {title: 'XKCD', url: 'http://xkcd.com', id: generateId()},
   {title: 'Facebook', url: 'http://facebook.com', id: generateId()}
 ];
