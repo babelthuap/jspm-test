@@ -8,7 +8,7 @@
     "postinstall": "npm i && jspm i"
   },
   "engines": {
-    "node": "5.1.0",
+    "node": "5.1.0"
   },
   "dependencies": {
     "body-parser": "~1.13.2",
