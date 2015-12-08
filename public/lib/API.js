@@ -7,8 +7,10 @@ let API = {
     console.log('2. API: getBookmarks')
     get('/api/links').done(data => ServerActions.receiveLinks(data.links));
   },
+
   addBookmark(newBookmark) {
-    post('/api/links', newBookmark);
+    console.log('2. API: addBookmark')
+    post('/api/links', newBookmark).done(data => ServerActions.postedBookmark(data));
   }
 }
 

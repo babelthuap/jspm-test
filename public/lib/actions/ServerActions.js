@@ -10,7 +10,18 @@ let ServerActions = {
       actionType: ActionTypes.RECEIVE_LINKS,
       links
     });
+  },
+
+  postedBookmark(newBookmark) {
+    console.log('3. server actions: postedBookmark()');
+    console.log(newBookmark);
+
+    AppDispatcher.dispatch({
+      actionType: ActionTypes.POSTED_LINK,
+      newBookmark
+    });
   }
+
 };
 
 export default ServerActions;

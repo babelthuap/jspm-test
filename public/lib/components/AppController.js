@@ -6,8 +6,6 @@ import API from '../API';
 import LinkActions from '../actions/LinkActions';
 
 import LinkStore from '../stores/LinkStore';
-// we'll read from the LinkStore at some point
-// read LinkStore.getAll()
 
 let _getAppState = () => {
   return { bookmarks: LinkStore.getAll() };

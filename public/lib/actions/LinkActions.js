@@ -8,6 +8,7 @@ let LinkActions = {
 
   saveNewBookmark(newBookmark) {
     console.log('1. link actions: saving', newBookmark)
+    API.addBookmark(newBookmark);
   }
 };
 
