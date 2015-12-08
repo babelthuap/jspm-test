@@ -14,6 +14,11 @@ let LinkActions = {
   deleteBookmark(id) {
     console.log('1. link actions: deleteBookmark()', id)
     API.deleteBookmark(id);
+  },
+
+  toggleLike(id) {
+    console.log('1. link actions: toggleLike()', id)
+    API.toggleLike(id);
   }
 };
 

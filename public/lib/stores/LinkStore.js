@@ -3,6 +3,14 @@ import AppDispatcher from "../AppDispatcher";
 import {ActionTypes} from "../Constants";
 
 let _links = [];
+let myIp;
+
+let findIndexById = id => {
+  for (let i = 0; i < _links.length; ++i) {
+    if (_links[i].id === id) return i;
+  }
+  return -1;
+}
 
 class LinkStore extends EventEmitter {
   // 1. Register with the dispatcher
@@ -14,7 +22,8 @@ class LinkStore extends EventEmitter {
         case ActionTypes.RECEIVE_LINKS:
           console.log("4. received news about the new data", action)
           // do something
-          _links = action.links;
+          _links = action.data.links;
+          myIp = action.data.yourIp;
           this.emit("CHANGE");
           break;
         case ActionTypes.POSTED_LINK:
@@ -28,6 +37,17 @@ class LinkStore extends EventEmitter {
           _links = _links.filter(link => link.id !== action.deleted.deletedId);
           this.emit("CHANGE");
           break;
+        case ActionTypes.TOGGLE_LIKED_LINK:
+          console.log("4. received news about the liked link", action)
+          
+          let likedLink = action.likedLink;
+
+          // find by id and update
+          let index = findIndexById(likedLink.id);
+          _links[index].likedBy[likedLink.yourIp] = likedLink.likedByUser;
+
+          this.emit("CHANGE");
+          break;
         default:
           // do nothing
       }
@@ -38,6 +58,7 @@ class LinkStore extends EventEmitter {
   getAll() {
     // can do some computation on _links
     return _links.map(link => {
+      link.likedBy.me = link.likedBy[myIp];
       link.url = link.url.startsWith('http') ? link.url : 'http://' + link.url;
       link.safe = link.url.startsWith('https');
       return link;
