@@ -15,7 +15,7 @@ class Link extends React.Component {
     LinkActions.toggleLike(this.props.bookmark.id);
   }
   render() {
-    let {title, url, safe, likedBy} = this.props.bookmark;
+    let {title, url, safe, likedBy, numLikes} = this.props.bookmark;
     return <tr className="bookmark">
       <td>
         <a href={url}
@@ -35,6 +35,9 @@ class Link extends React.Component {
                 style={{color: 'grey'}}
                 onClick={this.deleteBookmark.bind(this)}>
         </button>
+      </td>
+      <td>
+        {numLikes} likes
       </td>
     </tr>;
   }

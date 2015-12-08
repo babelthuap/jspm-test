@@ -57,6 +57,9 @@ class LinkStore extends EventEmitter {
   getAll() {
     // can do some computation on _links
     return _links.map(link => {
+      link.numLikes = Object.keys(link.likedBy).filter(ip => {
+        return link.likedBy[ip] && ip !== 'me';
+      }).length;
       link.likedBy.me = link.likedBy[myIp];
       link.url = link.url.startsWith('http') ? link.url : 'http://' + link.url;
       link.safe = link.url.startsWith('https');
