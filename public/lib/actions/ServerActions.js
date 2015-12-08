@@ -12,9 +12,8 @@ let ServerActions = {
     });
   },
 
-  postedBookmark(newBookmark) {
-    console.log('3. server actions: postedBookmark()');
-    console.log(newBookmark);
+  receiveOneLink(newBookmark) {
+    console.log('3. server actions: postedBookmark()', newBookmark);
 
     AppDispatcher.dispatch({
       actionType: ActionTypes.POSTED_LINK,

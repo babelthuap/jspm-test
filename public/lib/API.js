@@ -8,9 +8,9 @@ let API = {
     get('/api/links').done(data => ServerActions.receiveLinks(data.links));
   },
 
-  addBookmark(newBookmark) {
+  saveNewBookmark(newBookmark) {
     console.log('2. API: addBookmark')
-    post('/api/links', newBookmark).done(data => ServerActions.postedBookmark(data));
+    post('/api/links', newBookmark).done(data => ServerActions.receiveOneLink(data));
   }
 }
 

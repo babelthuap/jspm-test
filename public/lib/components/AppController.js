@@ -26,9 +26,6 @@ class AppController extends React.Component {
   componentWillUnmount() {
     LinkStore.stopListening(this._onChange);
   }
-  addBookmark(newBookmark) {
-    LinkActions.saveNewBookmark(newBookmark);
-  }
   _onChange() {
     console.log("5. the store has emitted a change event");
     this.setState(_getAppState());
@@ -38,7 +35,7 @@ class AppController extends React.Component {
       <div>
         <h1>Modular Bookmarks</h1>
         <List bookmarks={this.state.bookmarks} />
-        <Form addBookmark={this.addBookmark.bind(this)} />
+        <Form />
       </div>
     );
   }
