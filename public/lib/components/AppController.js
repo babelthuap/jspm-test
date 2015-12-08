@@ -33,7 +33,7 @@ class AppController extends React.Component {
   render() {
     return (
       <div>
-        <h1>Modular Bookmarks</h1>
+        <h1>Flux Bookmarks</h1>
         <List bookmarks={this.state.bookmarks} />
         <p>Total: {this.state.bookmarks.length}</p>
         <Form />
